@@ -1,6 +1,5 @@
 # Dad Joke Search Application
 
-![Joke Icon](https://cdn-icons-png.flaticon.com/512/2901/2901598.png) <!-- Replace with your preferred joke-related icon -->
 [![GitHub stars](https://img.shields.io/github/stars/kapilinania/jockapi_task.github.io?style=social)](https://github.com/kapilinania/jockapi_task.github.io) 
 
 ## Overview
