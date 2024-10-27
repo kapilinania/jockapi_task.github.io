@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Jokes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Favorite Jokes</h1>
+        <div id="favorites-container" class="row"></div>
+        <a href="index.html" class="btn btn-secondary mt-4">Back to Jokes</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <script>
+        const favoritesContainer = document.getElementById('favorites-container');
+
+        // Function to fetch favorite jokes
+        async function fetchFavoriteJokes() {
+            try {
+                const response = await axios.get('/api/jokes/favourites');
+                const favorites = response.data;
+                displayFavorites(favorites);
+            } catch (error) {
+                console.error('Error fetching favorite jokes:', error);
+            }
+        }
+
+        // Function to display favorite jokes
+        function displayFavorites(favorites) {
+            favoritesContainer.innerHTML = '';
+            favorites.forEach((favorite) => {
+                const jokeCard = document.createElement('div');
+                jokeCard.className = 'col-md-4 mb-4';
+                jokeCard.innerHTML = `
+                    <div class="card h-100"> <!-- Use h-100 to make all cards the same height -->
+                        <img src="${favorite.image_url}" class="card-img-top" alt="Joke Image"> <!-- Display the joke image -->
+                        <div class="card-body d-flex flex-column"> <!-- Use d-flex and flex-column for alignment -->
+                            <p class="card-text flex-grow-1">${favorite.joke}</p> <!-- Make text take up remaining space -->
+                            <button class="btn btn-danger mt-2" onclick="removeFavorite('${favorite.joke_id}')">Remove from Favorites</button>
+                        </div>
+                    </div>
+                `;
+                favoritesContainer.appendChild(jokeCard);
+            });
+        }
+
+        // Function to remove a favorite joke
+        async function removeFavorite(joke_id) {
+            try {
+                await axios.delete(`/api/jokes/favourite/${joke_id}`);
+                fetchFavoriteJokes(); // Refresh the favorites after deletion
+            } catch (error) {
+                console.error('Error removing favorite joke:', error);
+            }
+        }
+
+        // Fetch favorite jokes when the page loads
+        fetchFavoriteJokes();
+    </script>
+</body>
+</html>
