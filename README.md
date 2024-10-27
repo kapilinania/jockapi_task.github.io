@@ -1,19 +1,19 @@
-# Dad Joke Search Application
+# Dad Joke Search Application 🚀
 
 [![GitHub stars](https://img.shields.io/github/stars/kapilinania/jockapi_task.github.io?style=social)](https://github.com/kapilinania/jockapi_task.github.io) 
 
-## Overview
+## Overview 📝
 
 This project is a web application that allows users to search for dad jokes, view them in a card layout, and save their favorites. It utilizes the Dad Joke API to fetch jokes and MySQL for storing favorite jokes.
 
-## Technologies Used
+## Technologies Used 🛠️
 
-- **Node.js**: Server-side JavaScript runtime
-- **MySQL/MariaDB**: Relational database for storing favorite jokes
-- **Bootstrap 5**: Frontend framework for responsive design
-- **Axios**: For making API requests
+- **Node.js**: 🌐 Server-side JavaScript runtime
+- **MySQL/MariaDB**: 🗄️ Relational database for storing favorite jokes
+- **Bootstrap 5**: 🎨 Frontend framework for responsive design
+- **Axios**: 📡 For making API requests
 
-## Features
+## Features 🌟
 
 - **Search Page**: 
   - Users can search for dad jokes.
@@ -24,8 +24,7 @@ This project is a web application that allows users to search for dad jokes, vie
   - Users can view all saved favorite jokes.
   - This page does not call the API; it fetches data from the local database.
 
-## Installation
-
+## Installation ⚙️
 To run this project locally, follow these steps:
 
 1. **Clone the repository**:
@@ -59,9 +58,9 @@ DB_NAME=your_db_name
 npm start
 Visit the application: Open your browser and navigate to http://localhost:3000.
 
-### Usage
+### Usage 📚
 Search for Jokes: Enter a search term in the search bar and click "Search" to find dad jokes.
-Favorite a Joke: Click the heart icon to save a joke to your favorites.
+Favorite a Joke: Click the ❤️ icon to save a joke to your favorites.
 View Favorites: Click on the "View Favorite Jokes" button to see all saved jokes.
 
 
